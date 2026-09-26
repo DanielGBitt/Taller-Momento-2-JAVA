@@ -1,39 +1,47 @@
 package solucion;
 
+import java.util.Scanner;
+
 public class condicionalesCiclos {
     public static void main() {
-        /*Una persona adquirió un producto para pagar en 20 meses. El primer mes pagó
-        10 €,el segundo 20 €, el tercero 40 € y así sucesivamente.
-        Realizar un programa para determinar cuánto debe pagar mensualmente y
-        el total de lo que pagará después de los 20 meses.
 
-        Este programa puede servir para calcular otras compras y con diferentes
-        plazos  */
+        byte numeroCuotas = 0;
+        int primerPago = 0;
+        int acumulador = 0;
+        Scanner in = new Scanner(System.in);
 
-        // La persona adquirio un producto - debe pagarlo en 20 meses
-        // El primer mes pago 10, el segundo 20 y el tercero 40
-        // Cada pago se duplica ejemplo 10 * 2 = 20 * 2 = 40
-        // Debo capturar el plazo ejemplo: 20 meses osea 20
-        // Debo capturar cuanto costo la compra
-        // Debo devolver total de los meses con el valor que queda restando
+        System.out.println("----Bienvenido al sistema de calculo de compras por plazos!------\n");
+        System.out.println("Por favor digite el numero de cuotas");
+        numeroCuotas = in.nextByte();
 
-        /* Debo realizar que digamos ingresa el precio de la compra 20000 y
-        el numero de cuotas, entonces empezara un ciclo en 10 y ira aumentando
-        pero debe haber un if que muestre en pantalla si el numero que itera
-        es i * 2
+        if ((numeroCuotas == 0)){
+            System.out.println("Valor invalido - Ingrese un numero de cuotas mayor a 0");
+            return;
+        };
 
+        System.out.println("Ahora digite por favor el valor del primer pago");
 
-        * */
+        primerPago = in.nextInt();
 
-        int numero = 0;
-        int valorCompra = 80;
-
-        for(int i = 10; i <= valorCompra; i += 10){
-            numero = i;
-            System.out.println(numero * 2);
+        if ((primerPago == 0)){
+            System.out.println("Valor invalido - Ingrese un numero de pago mayor a 0");
+            return;
         }
 
+        for (int i = 1; i <= numeroCuotas; i++) {
+            System.out.println("mes " + i + ": " + primerPago);
+            acumulador = acumulador + primerPago;
+            primerPago = primerPago * 2;
+        }
+        System.out.println("Total : $" + acumulador);
 
-
+        in.close();
     }
 }
+
+
+/*Una persona adquirió un producto para pagar en 20 meses. El primer mes pagó 10 €,el
+segundo 20 €, el tercero 40 € y así sucesivamente.
+Realizar un programa para determinar cuánto debe pagar mensualmente y el total de lo
+que pagará después de los 20 meses. Este programa puede servir para calcular otras
+compras y con diferentes plazos */
