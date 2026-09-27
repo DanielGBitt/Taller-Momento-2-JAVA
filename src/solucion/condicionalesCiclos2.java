@@ -4,42 +4,50 @@ import java.util.Scanner;
 
 public class condicionalesCiclos2 {
     public static void main(String[] args) {
-        //1) Solicitar edades y alturas de 5 alumnos
-        //2) Mostras la edad de cada uno y la estatura media
-        //3) Mostrar la cantidad de alumnos mayores a 18 años
-        //4) Mostrar la cantidad de alumnos que miden mas de 1.75
 
-        // Creacion de variables
-        byte edadAlumno1 = 0;
-        byte edadAlumno2 = 0;
-        byte edadAlumno3 = 0;
-        byte edadAlumno4 = 0;
-        byte edadAlumno5 = 0;
-        double alturaAlumno1 = 0;
-        double alturaAlumno2 = 0;
-        double alturaAlumno3 = 0;
-        double alturaAlumno4 = 0;
-        double alturaAlumno5 = 0;
-
+        int edadesAlumno = 0;
+        double estaturasAlumnos = 0.0;
         Scanner in = new Scanner(System.in);
-        int contadorAlumno = 0;
-        double estaturaMedia1 = 1.58;
-        double estaturaMedia2 = 1.72;
-
-        //LOGICA
-
-        System.out.println("Ingresa la edad del primer alumno");
-        edadAlumno1 = in.nextByte();
-        System.out.println("Ingresa la edad del segundo alumno");
-        edadAlumno2 = in.nextByte();
-        System.out.println("Ingresa la edad del tercer alumno");
-        edadAlumno3 = in.nextByte();
-        System.out.println("Ingresa la edad del cuarto alumno");
-        edadAlumno4 = in.nextByte();
-        System.out.println("Ingresa la edad del quinto alumno");
-        edadAlumno5 = in.nextByte();
+        int cantidadAlumnosMayores18 = 0;
+        int contadorEdadAlumnos = 0;
+        double contadorEstaturaAlumnos = 0;
+        int cantidadAlumnosEstaturaMayor = 0;
 
 
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Ingresa la edad del alumno numero: " + i);
+            edadesAlumno = in.nextInt();
+
+            if (!(edadesAlumno != 0)){
+                System.out.println("Valor invalido, la edad debe ser mayor a 0");
+                return;
+            }
+
+
+            System.out.println("Ahora ingresa la estatura del alumno numero " + i + " Ingresa valores decimales!!" +
+                    " Ejemplo: 1,17");
+            estaturasAlumnos = in.nextDouble();
+
+
+
+            if (estaturasAlumnos > 1.75) {
+                cantidadAlumnosEstaturaMayor = cantidadAlumnosEstaturaMayor / 5;
+                cantidadAlumnosEstaturaMayor += 1;
+                contadorEstaturaAlumnos = contadorEstaturaAlumnos + estaturasAlumnos;
+            }
+
+            if (edadesAlumno > 18) {
+                cantidadAlumnosMayores18 += 1;
+                contadorEdadAlumnos = contadorEdadAlumnos + edadesAlumno;
+            }
+        }
+
+        System.out.println("---------RESULTADO--------");
+        System.out.println("La cantidad de alumnos mayores a 18 años es: " + cantidadAlumnosMayores18);
+        System.out.println("La cantidad de alumnos mayores a 1.17 es: " + cantidadAlumnosEstaturaMayor);
+        System.out.println("La estatura media es: " + contadorEstaturaAlumnos);
+        System.out.println("La edad promedio es: " + contadorEdadAlumnos / 5);
+        System.out.println("---------------------------");
 
     }
 }
