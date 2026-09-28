@@ -26,7 +26,7 @@ public class condicionalesCiclos2 {
             edadesAlumno = in.nextInt();
 
             //Realizo verificacion de input
-            if (!(edadesAlumno <= 0)){
+            if ((edadesAlumno <= 0)){
                 System.out.println("Valor invalido, la edad debe ser mayor a 0");
                 return;
             }
