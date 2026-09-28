@@ -5,12 +5,19 @@ import java.util.Scanner;
 public class condicionalesCiclos2 {
     public static void main(String[] args) {
 
+        // Declaracion de variables
         int edadesAlumno = 0;
         double estaturasAlumnos = 0.0;
         Scanner in = new Scanner(System.in);
+
         int cantidadAlumnosMayores18 = 0;
-        int contadorEdadAlumnos = 0;
-        double contadorEstaturaAlumnos = 0;
+        /*
+            Uso double como tipo de dato en sumatoria de las edades por que es un promedio y puede
+            ser tambien decimal por ser promedio.
+        */
+        double sumatoriaEdadAlumnos = 0;
+
+        double sumatoriaEstaturaAlumnos = 0;
         int cantidadAlumnosEstaturaMayor = 0;
 
 
@@ -18,35 +25,48 @@ public class condicionalesCiclos2 {
             System.out.println("Ingresa la edad del alumno numero: " + i);
             edadesAlumno = in.nextInt();
 
-            if (!(edadesAlumno != 0)){
+            //Realizo verificacion de input
+            if (!(edadesAlumno <= 0)){
                 System.out.println("Valor invalido, la edad debe ser mayor a 0");
                 return;
             }
 
+            //Sumamos todas las edades de los alumnos
+            sumatoriaEdadAlumnos += edadesAlumno;
 
-            System.out.println("Ahora ingresa la estatura del alumno numero " + i + " Ingresa valores decimales!!" +
+
+            System.out.println("Ahora ingresa la estatura del alumno numero " + i + " " +
+                    "Ingresa valores decimales!!" +
                     " Ejemplo: 1,17");
             estaturasAlumnos = in.nextDouble();
 
 
-
             if (estaturasAlumnos > 1.75) {
-                cantidadAlumnosEstaturaMayor = cantidadAlumnosEstaturaMayor / 5;
+                //Sumamos la cantidad de alumnos con estatura mayor a 1.75
                 cantidadAlumnosEstaturaMayor += 1;
-                contadorEstaturaAlumnos = contadorEstaturaAlumnos + estaturasAlumnos;
             }
 
+            //Se suma la estatura de todos los alumnos
+            sumatoriaEstaturaAlumnos += estaturasAlumnos;
+
+
             if (edadesAlumno > 18) {
+                //Sumo la cantidad de alumnos mayores a 18
                 cantidadAlumnosMayores18 += 1;
-                contadorEdadAlumnos = contadorEdadAlumnos + edadesAlumno;
             }
         }
 
+        //Se calcula la edad media de todos los alumnos
+        sumatoriaEdadAlumnos = sumatoriaEdadAlumnos / 5;
+        //Se calcula la estatura media de todos los alumnos
+        sumatoriaEstaturaAlumnos = sumatoriaEstaturaAlumnos / 5;
+
+
         System.out.println("---------RESULTADO--------");
         System.out.println("La cantidad de alumnos mayores a 18 años es: " + cantidadAlumnosMayores18);
-        System.out.println("La cantidad de alumnos mayores a 1.17 es: " + cantidadAlumnosEstaturaMayor);
-        System.out.println("La estatura media es: " + contadorEstaturaAlumnos);
-        System.out.println("La edad promedio es: " + contadorEdadAlumnos / 5);
+        System.out.println("La cantidad de alumnos mayores a 1.75 es: " + cantidadAlumnosEstaturaMayor);
+        System.out.println("La estatura media es: " + sumatoriaEstaturaAlumnos);
+        System.out.println("La edad promedio es: " + sumatoriaEdadAlumnos);
         System.out.println("---------------------------");
 
     }
