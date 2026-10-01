@@ -23,20 +23,23 @@ public class condicionalesCiclos3 {
         //COD Articulo
         String codigoArticulo = "";
 
+        //variable condicional
+        byte i = 1;
+
         //Entrada input
         Scanner in = new Scanner(System.in);
 
 
         System.out.println("Bienvenido a la empresa de desinfectantes");
 
-        for (int i = 1; i <= 5; i++) {
+
+        do {
 
             //Pido cantidad de litros al usuario
             System.out.println("---------------------------\n");
 
-            cantidadProductos += 1;
 
-            if (i == 2) {
+            if (i >= 2) {
                 System.out.println("""
                             ¿Que quieres hacer?
                             1) FACTURAR MISMO PRODUCTO ---
@@ -45,8 +48,13 @@ public class condicionalesCiclos3 {
                 opcion = in.nextByte();
             }
 
+            cantidadProductos += 1;
+            i += 1;
+
+
             switch (opcion){
                 case 1:
+
 
                     System.out.println("Administrador. Favor ingresa cantidad de litros que se va a facturar");
                     cantidadLitros = in.nextInt();
@@ -63,37 +71,16 @@ public class condicionalesCiclos3 {
 
                     facturacionTotalLitros += cantidadLitros;
 
-                    System.out.println("**--------FACTURA-----------*");
-                    System.out.println("Articulo: #" + numeroArticulo);
-                    System.out.println("..............................");
-                    System.out.println("Precio por litro: $" + precioLitro);
-                    System.out.println("Facturacion total: $" + facturacionTotal);
-                    System.out.println("Productos en total: " + numeroArticulo);
-                    System.out.println("Codigo de articulo: " + codigoArticulo);
-                    System.out.println("Total de litros vendidos del articulo: " + cantidadLitros);
-                    if (i == 5) {
-                        if (cantidadFacturas <= 0) {
-                            System.out.println("Cantidad de facturas de mas de $100.000: " + 0);
-                        } else {
-                            System.out.println("Cantidad de facturas de mas de $" +
-                                    "100.000: " + cantidadFacturas);
-                        }
-                    }
-
                     System.out.println("---------------------------\n");
-
-                    System.out.println("""
-                            ¿Que quieres hacer?
-                            1) FACTURAR MISMO PRODUCTO ---
-                            2) FACTURAR OTRO PRODUCTO ----
-                        """);
-                    opcion = in.nextByte();
 
                     break;
 
                 case 2:
 
-                    cantidadProductos += 1;
+                        cantidadProductos = 1;
+                        facturacionTotal = 0;
+                        codigoArticulo = "";
+
 
                     System.out.println("Ingrese numero de articulo EJEMPLO: solo se permiten 1,2,3");
                     numeroArticulo = in.nextByte();
@@ -124,31 +111,27 @@ public class condicionalesCiclos3 {
 
                     facturacionTotalLitros += cantidadLitros;
 
-                    System.out.println("**--------FACTURA-----------*");
-                    System.out.println("Articulo: #" + numeroArticulo);
-                    System.out.println("..............................");
-                    System.out.println("Precio por litro: $" + precioLitro);
-                    System.out.println("Facturacion total: $" + facturacionTotal);
-                    System.out.println("Productos en total: " + 1);
-                    System.out.println("Codigo de articulo: " + codigoArticulo);
-                    System.out.println("Total de litros vendidos del articulo: " + cantidadLitros);
-                    if (i == 5) {
-                        if (cantidadFacturas <= 0) {
-                            System.out.println("Cantidad de facturas de mas de $100.000: " + 0);
-                        } else {
-                            System.out.println("Cantidad de facturas de mas de $" +
-                                    "100.000: " + cantidadFacturas);
-                        }
-                    }
-
                     break;
             }
 
 
-
-
-        }
-
+            System.out.println("**--------FACTURA-----------*");
+            System.out.println("Articulo: #" + numeroArticulo);
+            System.out.println("..............................");
+            System.out.println("Precio por litro: $" + precioLitro);
+            System.out.println("Facturacion total: $" + facturacionTotal);
+            System.out.println("Productos en total: " + cantidadProductos);
+            System.out.println("Codigo de articulo: " + codigoArticulo);
+            System.out.println("Total de litros vendidos del articulo: " + cantidadLitros);
+            if (i == 5) {
+                if (cantidadFacturas <= 0) {
+                    System.out.println("Cantidad de facturas de mas de $100.000: " + 0);
+                } else {
+                    System.out.println("Cantidad de facturas de mas de $" +
+                            "100.000: " + cantidadFacturas);
+                }
+            }
+        }while (i <= 5);
     }
 }
         /*
