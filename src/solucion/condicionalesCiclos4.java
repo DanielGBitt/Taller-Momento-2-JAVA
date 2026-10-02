@@ -6,20 +6,34 @@ public class condicionalesCiclos4 {
     public static void main(String[] args) {
         System.out.println("---------Bienvenido a la '''General Motors'''-------");
         //Variables
-        String Kilometros = "";
+        int kilometros = 000000;
+        int copiaKm = 0;
+        int digito = 0;
         Scanner in = new Scanner(System.in);
 
-        for (double i = 000000; i <= 999999; i++){
-            if (i % 10 == 8){
+        while (kilometros <= 999999) {
+            copiaKm = kilometros;
+            String pantalla = "";
 
-            } else if (i / 10 % 10 == 8){
-
+            if (copiaKm == 0) {
+                pantalla = "000000";
             }
 
+            while (copiaKm > 0) {
+                digito = copiaKm % 10;
+
+                if (digito == 8) {
+                    pantalla = "&" + pantalla;
+                } else {
+                    pantalla = digito + pantalla;
+                }
+
+                copiaKm = copiaKm / 10;
+            }
+
+            System.out.println(pantalla);
+            kilometros += 1;
         }
-
-
-
     }
 }
 
