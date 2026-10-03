@@ -1,16 +1,55 @@
 package solucion;
 
-public class condicionalesCiclos7 {
-    public static void main() {
+import java.util.Scanner;
 
+public class condicionalesCiclos7 {
+    public static void main(String[] args) {
+
+
+        byte opcion = 0;
+        String nombreCliente = "";
+        Scanner in = new Scanner(System.in);
+        boolean panelOpcional = false;
+
+        do {
+            System.out.println("Bienvenido al gestor de barberia");
+            System.out.println("""
+                    1) Registrar un cliente
+                    2) Salir programa
+                """);
+
+            opcion = in.nextByte();
+
+
+            switch (opcion){
+                case 1:
+
+                    do {
+                        System.out.println("Ingrese el nombre del cliente");
+                        nombreCliente = in.nextLine();
+                        if (nombreCliente == ""){
+                            System.out.println("Debes ingresar un nombre para continuar!!");
+                        }
+                    }while (nombreCliente == "");
+
+                    break;
+
+                case 2:
+                    panelOpcional = true;
+                    break;
+            }
+
+        }while (panelOpcional == false);
     }
 }
 
 /*Gestión de Barbería
 
-Se requiere un programa en Java que funcione como un sistema básico de gestión para una barbería. El programa debe mostrar un menú con las siguientes opciones:
+Se requiere un programa en Java que funcione como un sistema básico de gestión para una barbería.
+El programa debe mostrar un menú con las siguientes opciones:
 
 Opciones:
+
 Registrar un cliente.
 Pedir el nombre del cliente.
 No permitir que el nombre esté vacío.
