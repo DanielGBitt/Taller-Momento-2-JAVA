@@ -8,39 +8,39 @@ public class condicionalesCiclos6 {
         // Variables
         String nombreCliente = "";
         int acumuladorPedidos = 0;
-        int acumuladorPrecioPizza = 0;
         int acumuladorVentas = 0;
 
         byte opcionPizza = 0;
         byte opcion = 0;
 
+        boolean salirPrograma = false;
+
+        //Scanner
         Scanner in = new Scanner(System.in);
 
 
         do {
 
-
             System.out.println("Bienvenido al sistema de pedidos de la pizzeria lola");
             System.out.println("------------------------------");
             System.out.println("""
+                        ¿Que quieres hacer?
+                        ---------------------
                         1) Registrar un pedido.
-                        2) Mostrar total de pedidos realizados.
-                        3) Mostrar total de ventas acumuladas.
-                        4) Salir del programa.
+                        2) Salir del programa.
+                        ----------------------
                     """);
 
             opcion = in.nextByte();
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Favor introducir su nombre");
-                    nombreCliente = in.nextLine();
-                    System.out.println();
+                    in.nextLine();
 
-                    if (nombreCliente.equals("")) {
-                        System.out.println("Ingrese un nombre para poder continuar, reinicia el programa!");
-                        return;
-                    }
+                    do {
+                        System.out.println("Favor introducir su nombre");
+                        nombreCliente = in.nextLine();
+                    }while (nombreCliente == "");
 
                     System.out.println("""
                                 Pizzas disponibles
@@ -82,15 +82,22 @@ public class condicionalesCiclos6 {
                         System.out.println("Ya no se pueden agregar mas pedidos!");
                         System.out.println("--------------------------------------");
                     }
+                    break;
+
+                case 2:
+                    salirPrograma = true;
+                break;
+
             }
 
 
-        } while (acumuladorPedidos < 5);
+        } while (salirPrograma == false && acumuladorPedidos < 5);
+
 
 
         System.out.println("RESUMEN: ");
         System.out.println("---------------------------------");
-        System.out.println("Total de ventas: " + acumuladorVentas);
+        System.out.println("Total ventas: $" + acumuladorVentas);
         System.out.println("Numero de pedidos: " + acumuladorPedidos);
         System.out.println("----------------------------------");
         System.out.println("Gracias por utilizar el programa esperamos verte pronto...");
