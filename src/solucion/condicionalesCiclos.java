@@ -5,9 +5,12 @@ import java.util.Scanner;
 public class condicionalesCiclos {
     public static void main() {
 
+        //Variables
         byte numeroCuotas = 0;
         int primerPago = 0;
         int acumulador = 0;
+
+        //Scanner
         Scanner in = new Scanner(System.in);
 
         System.out.println("----Bienvenido al sistema de calculo de compras por plazos!------\n");
@@ -35,7 +38,6 @@ public class condicionalesCiclos {
         }
         System.out.println("Total : $" + acumulador);
 
-        in.close();
     }
 }
 
