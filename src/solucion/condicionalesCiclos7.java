@@ -5,8 +5,13 @@ import java.util.Scanner;
 public class condicionalesCiclos7 {
     public static void main(String[] args) {
 
-
+        //Variables
         byte opcion = 0;
+        byte opcionServicio = 0;
+
+        int costoServicios = 0;
+        int acumuladorTotalServicios = 0;
+
         String nombreCliente = "";
         Scanner in = new Scanner(System.in);
         boolean panelOpcional = false;
@@ -14,17 +19,21 @@ public class condicionalesCiclos7 {
         do {
             System.out.println("Bienvenido al gestor de barberia");
             System.out.println("""
+                    -----------------------
                     1) Registrar un cliente
                     2) Salir programa
+                    -----------------------
                 """);
 
-            opcion = in.nextByte();
 
+            opcion = in.nextByte();
+            in.nextLine();
 
             switch (opcion){
                 case 1:
 
                     do {
+                        System.out.println("-----------------------------");
                         System.out.println("Ingrese el nombre del cliente");
                         nombreCliente = in.nextLine();
                         if (nombreCliente == ""){
@@ -32,12 +41,40 @@ public class condicionalesCiclos7 {
                         }
                     }while (nombreCliente == "");
 
+
+                    System.out.println("""
+                            ------------------------
+                            1. Corte de cabello ($100)
+                            2. Afeitado ($50)
+                            3. Corte y barba ($130)
+                            -------------------------
+                            """);
+
+                    switch (opcionServicio){
+                        case 1:
+                            acumuladorTotalServicios += 1;
+                            break;
+
+                        case 2:
+                            acumuladorTotalServicios += 1;
+
+                            break;
+
+                        case 3:
+                            acumuladorTotalServicios += 1;
+
+                            break;
+                    }
+
                     break;
 
                 case 2:
                     panelOpcional = true;
                     break;
             }
+
+            System.out.println("Total servicios: " + acumuladorTotalServicios);
+
 
         }while (panelOpcional == false);
     }
