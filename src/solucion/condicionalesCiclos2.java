@@ -5,18 +5,14 @@ import java.util.Scanner;
 public class condicionalesCiclos2 {
     public static void main(String[] args) {
 
-        // Declaracion de variables
+        // Variables
         int edadesAlumno = 0;
         double estaturasAlumnos = 0.0;
         Scanner in = new Scanner(System.in);
 
         int cantidadAlumnosMayores18 = 0;
-        /*
-            Uso double como tipo de dato en sumatoria de las edades por que es un promedio y puede
-            ser tambien decimal por ser promedio.
-        */
-        double sumatoriaEdadAlumnos = 0;
 
+        double sumatoriaEdadAlumnos = 0;
         double sumatoriaEstaturaAlumnos = 0;
         int cantidadAlumnosEstaturaMayor = 0;
 
@@ -25,7 +21,7 @@ public class condicionalesCiclos2 {
             System.out.println("Ingresa la edad del alumno numero: " + i);
             edadesAlumno = in.nextInt();
 
-            //Realizo verificacion de input
+            //Realizo verificacion de entrada
             if ((edadesAlumno <= 0)){
                 System.out.println("Valor invalido, la edad debe ser mayor a 0");
                 return;
@@ -37,7 +33,7 @@ public class condicionalesCiclos2 {
 
             System.out.println("Ahora ingresa la estatura del alumno numero " + i + " " +
                     "Ingresa valores decimales!!" +
-                    " Ejemplo: 1,17");
+                    " Ejemplo: 1.17");
             estaturasAlumnos = in.nextDouble();
 
 
@@ -71,9 +67,3 @@ public class condicionalesCiclos2 {
 
     }
 }
-
-/*
-    Se requiere realizar un programa que solicite las edades y alturas de 5 alumnos, mostrar la edad y
-    la estatura media, la cantidad de alumnos mayores de 18 años, y la cantidad de alumnos que
-    miden más de 1.75 cm.
-*/

@@ -3,7 +3,7 @@ package solucion;
 import java.util.Scanner;
 
 public class condicionalesCiclos {
-    public static void main() {
+    public static void main(String[] args) {
 
         //Variables
         byte numeroCuotas = 0;
@@ -13,24 +13,31 @@ public class condicionalesCiclos {
         //Scanner
         Scanner in = new Scanner(System.in);
 
+        System.out.println("--------------------------------------------------------------------");
         System.out.println("----Bienvenido al sistema de calculo de compras por plazos!------\n");
-        System.out.println("Por favor digite el numero de cuotas");
-        numeroCuotas = in.nextByte();
+        System.out.println("--------------------------------------------------------------------");
 
-        if ((numeroCuotas == 0)){
-            System.out.println("Valor invalido - Ingrese un numero de cuotas mayor a 0");
-            return;
-        };
+        do {
 
-        System.out.println("Ahora digite por favor el valor del primer pago");
+            System.out.println("Por favor digite el numero de cuotas");
+            numeroCuotas = in.nextByte();
+            if (numeroCuotas <= 0) {
+                System.out.println("Valor invalido - Ingrese un numero de cuotas mayor a 0");
+            }
 
-        primerPago = in.nextInt();
+        } while (numeroCuotas <= 0);
 
-        if ((primerPago == 0)){
-            System.out.println("Valor invalido - Ingrese un numero de pago mayor a 0");
-            return;
-        }
 
+        do {
+            System.out.println("Ahora digite por favor el valor del primer pago");
+            primerPago = in.nextInt();
+
+            if (primerPago <= 0) {
+                System.out.println("Valor invalido - Ingrese un numero de pago mayor a 0");
+            }
+        } while (primerPago <= 0);
+
+        //Calculo pagos y total
         for (int i = 1; i <= numeroCuotas; i++) {
             System.out.println("mes " + i + ": " + primerPago);
             acumulador = acumulador + primerPago;
